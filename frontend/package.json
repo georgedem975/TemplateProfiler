@@ -1,0 +1,35 @@
+{
+  "name": "template-profiler-frontend",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@types/ejs": "^3.1.5",
+    "@types/nunjucks": "^3.2.6",
+    "ejs": "^5.0.1",
+    "eta": "^4.5.1",
+    "handlebars": "^4.7.8",
+    "lodash": "^4.17.21",
+    "mustache": "^4.2.0",
+    "nunjucks": "^3.2.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.202",
+    "@types/mustache": "^4.2.5",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "@vitejs/plugin-react": "^4.2.0",
+    "autoprefixer": "^10.4.17",
+    "postcss": "^8.4.33",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.2.2",
+    "vite": "^5.0.8"
+  }
+}
