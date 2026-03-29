@@ -28,19 +28,19 @@ export function BenchmarkResults() {
   return (
     <div className="space-y-4">
       <div className="flex items-center justify-between">
-        <h2 className="text-lg font-semibold text-gray-800">Saved Benchmark Results</h2>
+        <h2 className="text-lg font-semibold text-gray-800">Сохранённые результаты</h2>
         <button
           onClick={load}
           disabled={loading}
           className="px-3 py-1.5 text-sm border border-gray-300 rounded-md hover:bg-gray-50 transition-colors disabled:opacity-50"
         >
-          {loading ? 'Loading...' : 'Refresh'}
+          {loading ? 'Загрузка...' : 'Обновить'}
         </button>
       </div>
 
       {error && (
         <div className="bg-yellow-50 border border-yellow-200 text-yellow-800 rounded-md px-4 py-3 text-sm">
-          {error}
+          Не удалось загрузить результаты. Бэкенд запущен?
         </div>
       )}
 
