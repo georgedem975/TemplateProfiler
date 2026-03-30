@@ -1,5 +1,4 @@
 import json
-
 from pydantic import BaseModel, field_validator
 
 
@@ -18,7 +17,7 @@ class BenchmarkRecordCreateSchema(BaseModel):
 
     @field_validator('template_engine')
     @classmethod
-    def validate_template_engine(cls, v):
+    def validate_template_engine(cls, v) -> str:
         allowed_engines = ['mustache', 'handlebars', 'lodash', 'ejs', 'nunjucks', 'eta']
         if v not in allowed_engines:
             raise ValueError(f'template_engine must be one of: {", ".join(allowed_engines)}')
@@ -26,7 +25,7 @@ class BenchmarkRecordCreateSchema(BaseModel):
 
     @field_validator('render_time_ms')
     @classmethod
-    def validate_render_time_ms(cls, v):
+    def validate_render_time_ms(cls, v) -> str:
         try:
             num_value = float(v)
             formatted = f"{num_value:.3f}"
@@ -36,7 +35,7 @@ class BenchmarkRecordCreateSchema(BaseModel):
 
     @field_validator('payload')
     @classmethod
-    def validate_payload(cls, v):
+    def validate_payload(cls, v) -> str:
         try:
             json.loads(v)
             return v

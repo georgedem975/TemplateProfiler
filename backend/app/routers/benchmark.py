@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends
 
-from app.schema.benchmark import BenchmarkRecordCreateSchema, BenchmarkRecordSchema
-from app.services.bechmark import BenchmarkService, get_benchmark_service
+from ..schema.benchmark import BenchmarkRecordCreateSchema, BenchmarkRecordSchema
+from ..services.benchmark import BenchmarkService, get_benchmark_service
 
 router = APIRouter(
     prefix="/benchmarks",
