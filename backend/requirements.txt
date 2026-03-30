@@ -1,2 +1,5 @@
-flask
-sqlite3
+flask[async]
+flask-cors
+aiosqlite
+pytest
+pytest-asyncio
