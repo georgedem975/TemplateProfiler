@@ -1,3 +1,5 @@
+flask[async]
+flask-cors
 aiosqlite
 pytest
 pytest-asyncio
