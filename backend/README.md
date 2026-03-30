@@ -1,78 +1,46 @@
-# Backend Service
+# Backend — SQLite Persistence
 
-## 📌 Overview
+Async SQLite persistence layer for template benchmark records.
 
-This is a simple monolithic web service responsible for storing and retrieving template rendering benchmark results.
+## Stack
 
-The service exposes two HTTP endpoints:
+- Python 3.11+
+- aiosqlite
 
-* `POST /benchmarks` — store benchmark result
-* `GET /benchmarks` — retrieve stored results
+## Setup
 
-The goal is to keep the implementation minimal and focused, without overengineering (no strict layering).
-
----
-
-## 🧠 Data Model
-
-Each record contains:
-
-* `template_engine` (string) — name of the templating engine
-* `render_time_ms` (float) — rendering time in milliseconds
-* `payload` (string/json) — optional input data used for rendering
-
----
-
-## ⚙️ Tech Stack
-
-* Python
-* Flask (or similar lightweight framework)
-* SQLite (default storage)
-
----
-
-## 📡 API Contract
-
-### POST /benchmarks
-
-Store a benchmark result.
-
-**Request body (JSON):**
-
-```json
-{
-  "template_engine": "jinja2",
-  "render_time_ms": 12.5,
-  "payload": "{ \"data\": 123 }"
-}
+```bash
+pip install -r requirements.txt
 ```
 
-**Response:**
+## Database
 
-```json
-{
-  "status": "ok"
-}
+SQLite file `benchmarks.db`, created automatically on first run.
+
+Schema:
+
+```sql
+CREATE TABLE IF NOT EXISTS benchmarks (
+    id              INTEGER PRIMARY KEY AUTOINCREMENT,
+    template_engine TEXT    NOT NULL,
+    render_time_ms  TEXT    NOT NULL,
+    payload         TEXT    NOT NULL,
+    created_at      TEXT    NOT NULL DEFAULT (datetime('now'))
+);
 ```
 
----
+> `render_time_ms` — TEXT, чтобы сохранить формат `"2.000"`.
 
-### GET /results
+## API (db.py)
 
-Retrieve stored results.
+```python
+await init_db()                                          # создать таблицу
+await insert_benchmark(engine, render_time_ms, payload)  # сохранить запись
+await get_benchmarks()                                   # получить все записи (новые первыми)
+```
 
-**Query params (optional):**
+## Tests
 
-* `template_engine`
-
-**Response:**
-
-```json
-[
-  {
-    "template_engine": "jinja2",
-    "render_time_ms": 12.5,
-    "payload": "..."
-  }
-]
+```bash
+pytest
 ```
