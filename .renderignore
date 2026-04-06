@@ -1,0 +1,6 @@
+frontend/
+.idea/
+.git/
+*.md
+LICENSE
+!backend/
