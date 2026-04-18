@@ -18,12 +18,10 @@ services:
   - type: web
     name: template-profiler-frontend
     env: static
-    plan: free
 
     rootDir: frontend
 
     buildCommand: npm install && npm run build
-
     staticPublishPath: dist
 
     envVars:
