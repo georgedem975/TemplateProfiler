@@ -8,9 +8,16 @@ vi.mock('../api/benchmarks', () => ({
 }));
 
 describe('BenchmarkResults Component', () => {
-  it('debe mostrar el mensaje cuando no hay resultados', async () => {
+  it('it needs to display a massege when there not  result', async () => {
     render(<BenchmarkResults />);
     const message = await screen.findByText(/No results yet/i);
     expect(message).toBeInTheDocument();
   });
+});
+
+it('Show the title', () => {
+  render(<BenchmarkResults />);
+  // Buscamos el encabezado h2 que tienes en tu código
+  const title = screen.getByText(/Сохранённые результаты/i);
+  expect(title).toBeInTheDocument();
 });
