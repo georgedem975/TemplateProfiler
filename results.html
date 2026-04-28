@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Результаты команды и замеры</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .section {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+            color: #555;
+        }
+
+        tr:hover {
+            background-color: #f5f7ff;
+        }
+
+        .role {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .developer .role { background-color: #e3f2fd; color: #1976d2; }
+        .devops .role { background-color: #fff3e0; color: #ef6c00; }
+        .pm .role { background-color: #e8f5e8; color: #388e3c; }
+
+        .tg-link {
+            color: #0088cc;
+            text-decoration: none;
+        }
+
+        .tg-link:hover {
+            text-decoration: underline;
+        }
+
+        .task-link {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .task-link:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+
+        .measurement-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .measurement-info {
+            flex: 1;
+        }
+
+        .template-name {
+            font-weight: 600;
+            color: #444;
+            margin-bottom: 5px;
+        }
+
+        .render-time {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .time-value {
+            font-weight: bold;
+            color: #2e7d32;
+        }
+
+        footer {
+            text-align: center;
+            color: rgba(255,255,255,0.8);
+            margin-top: 40px;
+            padding: 20px;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            th, td {
+                padding: 8px 10px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Результаты работы команды</h1>
+            <p class="subtitle">Отчёт по задачам и замеры производительности</p>
+        </header>
+
+        <section class="section">
+            <h2>Состав команды и выполненные задачи</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Имя и фамилия</th>
+                        <th>Роль</th>
+                        <th>Telegram</th>
+                        <th>Выполненные задачи</th>
+                        <th>Ссылки на задачи</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="pm">
+                        <td>Преображенский Георгий</td>
+                        <td><span class="role">Manager</span></td>
+                        <td><a href="https://t.me/georgedemyan" class="tg-link">@georgedemyan</a></td>
+                        <td>Организовал спринт, провёл планирование, координировал команду</td>
+                        <td>
+                            <a href="https://github.com/georgedem975/TemplateProfiler/issues/7" class="task-link">Documentation: maintain wiki and prepare release notes</a>
+                        </td>
+                    </tr>
+                    <tr class="devops">
+                        <td>Костык Евгений</td>
+                        <td><span class="role">DevOps</span></td>
+                        <td><a href="https://t.me/jenyacpypy" class="tg-link">@jenyacpypy</a></td>
+                        <td>Настроил пайплайн непрерывной интеграции (CI) с помощью GitHub Actions</td>
+                        <td>
+                            <a href="https://github.com/georgedem975/TemplateProfiler/issues/4" class="task-link">DevOps: add CI pipeline to run unit tests</a>
+                        </td>
+                    </tr>
+             <tr class="devops">
+                <td>Погоренко Иван</td>
+                <td><span class="role">DevOps</span></td>
+                <td><a href="https://t.me/Duduvvka" class="tg-link">@Duduvvka</a></td>
+                <td>Развернул backend и frontend а также базу данных на Render</td>
+                <td>
+                    <a href="https://github.com/georgedem975/TemplateProfiler/issues/3" class="task-link">DevOps: deploy backend service to Render</a>,
+                    <a href="https://github.com/georgedem975/TemplateProfiler/issues/15" class="task-link">Deploy frontend service to Render</a>
+                </td
+            </tr>
+            <tr class="developer">
+                <td>Симаков Евгений</td>
+                <td><span class="role">Frontend Разработчик</span></td>
+                <td><a href="https://t.me/EvgeniiSimakov" class="tg-link">@EvgeniiSimakov</a></td>
+                <td>Реализовал веб интерфейс сервиса</td>
+                <td></td>
+            </tr>
+            <tr class="developer">
+                <td>Савельева Диана</td>
+                <td><span class="role">Backend Разработчик</span></td>
+                <td><a href="https://t.me/di_svlv" class="tg-link">@di_svlv</a></td>
+                <td>Реализовала уровень доступа к данным</td>
+                <td>
+                    <a href="https://github.com/georgedem975/TemplateProfiler/issues/1" class="task-link">Backend: add SQLite persistence for benchmarks</a>
+                </td>
+            </tr>
+            <tr class="developer">
+                <td>Пяигорец Александр</td>
+                <td><span class="role">Backend Разработчик</span></td>
+                <td><a href="https://t.me/jojiiikol" class="tg-link">@jojiiikol</a></td>
+                <td>Реализовал HTTP‑API на Flask с эндпоинтами</td>
+                <td>
+                    <a href="https://github.com/georgedem975/TemplateProfiler/issues/2" class="task-link">Backend: implement /benchmarks API endpoints</a>
+                </td>
+            </tr>
+            <tr class="developer">
+                <td>Чирков Лев</td>
+                <td><span class="role">Backend Разработчик</span></td>
+                <td><a href="https://t.me/L1ones" class="tg-link">@L1ones</a></td>
+                <td>Настроил логирование в бэкенд‑сервисе</td>
+                <td>
+                    <a href="https://github.com/georgedem975/TemplateProfiler/issues/5" class="task-link">Backend: add structured logging</a>
+                </td>
+            </tr>
+            <tr class="developer">
+                <td>Ангел Кантор Флорес</td>
+                <td><span class="role">Тестировщик</span></td>
+                <td><a href="https://t.me/Angel36b" class="tg-link">@Angel36b</a></td>
+                <td>Написал тесты для CI, протестировал корректность работы развернутого программного обеспечения</td>
+                <td>
+                    <a href="https://github.com/georgedem975/TemplateProfiler/issues/16" class="task-link">Frontend: write unit tests and test the deployed application</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+<section class="section">
+    <h2>Результаты замеров производительности</h2>
+    <div class="measurement-list">
+        <div class="measurement-item">
+            <div class="measurement-info">
+                <div class="template-name">Шаблонизатор Mustache</div>
+                <div class="render-time">Время рендеринга: <span class="time-value">2.200 мс</span></div>
+            </div>
+        </div>
+        <div class="measurement-item">
+            <div class="measurement-info">
+                <div class="template-name">Шаблонизатор Handlebars</div>
+                <div class="render-time">Время рендеринга: <span class="time-value">13.300 мс</span></div>
+            </div>
+        </div>
+        <div class="measurement-item">
+            <div class="measurement-info">
+                <div class="template-name">Шаблонизатор Lodash (_.template)</div>
+                <div class="render-time">Время рендеринга: <span class="time-value">8.500 мс</span></div>
+            </div>
+        </div>
+        <div class="measurement-item">
+            <div class="measurement-info">
+                <div class="template-name">Шаблонизатор EJS</div>
+                <div class="render-time">Время рендеринга: <span class="time-value">13.300 мс</span></div>
+            </div>
+        </div>
+        <div class="measurement-item">
+            <div class="measurement-info">
+                <div class="template-name">Шаблонизатор Nunjucks</div>
+                <div class="render-time">Время рендеринга: <span class="time-value">16.300 мс</span></div>
+            </div>
+        </div>
+        <div class="measurement-item">
+            <div class="measurement-info">
+                <div class="template-name">Шаблонизатор Eta</div>
+                <div class="render-time">Время рендеринга: <span class="time-value">6.100 мс</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>Отчёт сформирован: <span id="report-date"></span></p>
+    <script>
+        const date = new Date();
+        const options = { day: '2-digit', month: 'long', year: 'numeric' };
+        document.getElementById('report-date').textContent = date.toLocaleDateString('ru-RU', options);
+    </script>
+</footer>
+</div>
+</body>
+</html>
